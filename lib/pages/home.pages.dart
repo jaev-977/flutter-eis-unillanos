@@ -1,3 +1,5 @@
+import 'package:casanareapp/Providers/cities.provider.dart';
+import 'package:casanareapp/models/cities.model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +11,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final CitiesProvider citiesProvider = CitiesProvider();
+  Future<List<Cities>>? listaCities;
+
   final bool _pinned = true;
   final bool _snap = false;
   final bool _floating = false;
@@ -33,7 +38,7 @@ class _HomePageState extends State<HomePage> {
                 icon: const Icon(Icons.menu),
                 alignment: Alignment.bottomLeft,
                 // ignore: avoid_print
-                onPressed: () => print('hi on icon action'),
+                onPressed: () => print(listaCities),
               ),
             ],
           ),
